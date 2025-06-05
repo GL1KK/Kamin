@@ -1,6 +1,5 @@
 import logging
 
-# Настройка логгеров
 logger_info = logging.getLogger("info_logger")
 logger_info.setLevel(logging.INFO)
 info_handler = logging.FileHandler("info_log.txt")
