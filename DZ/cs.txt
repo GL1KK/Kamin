@@ -1,0 +1,4 @@
+    def input_data(self):
+        data = input("Ваш ход: ")
+        if self.validator.check_correct_data(data):
+            Desk.desk[int(data) - 1] = "o" if c_s % 2 == 1 else "x"

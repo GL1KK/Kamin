@@ -1,0 +1,58 @@
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 2 принят!
+DEBUG:root:Ход 3 принят!
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 2 принят!
+DEBUG:root:Ход 5 принят!
+DEBUG:root:Ход 9 принят!
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 4 принят!
+DEBUG:root:Ход 7 принят!
+DEBUG:root:Ход 8 принят!
+DEBUG:root:Ход 6 принят!
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 3 принят!
+DEBUG:root:Ход 6 принят!
+DEBUG:root:Ход 9 принят!
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 2 принят!
+DEBUG:root:Ход 3 принят!
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 2 принят!
+DEBUG:root:Нас пытались сломать!
+DEBUG:root:Бот блокирует игрока, ход на 3!
+DEBUG:root:Ход 5 принят!
+DEBUG:root:Ход 8 принят!
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 2 принят!
+DEBUG:root:Ход 4 принят!
+DEBUG:root:Ход 5 принят!
+DEBUG:root:Ход 8 принят!
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 2 принят!
+DEBUG:root:Нас пытались сломать!
+DEBUG:root:Бот блокирует игрока, ход на 3!
+DEBUG:root:Ход 3 не принят!
+DEBUG:root:Бот сходил на 1
+DEBUG:root:Ход 1 не принят!
+DEBUG:root:Бот сходил на 1
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 2 принят!
+DEBUG:root:Ход 5 принят!
+DEBUG:root:Ход 1 не принят!
+DEBUG:root:Бот блокирует игрока, ход на 3!
+DEBUG:root:Ход 3 не принят!
+DEBUG:root:Бот блокирует игрока, ход на 9!
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 4 принят!
+DEBUG:root:Бот блокирует игрока, ход на 7!
+DEBUG:root:Ход 3 принят!
+DEBUG:root:Бот блокирует игрока, ход на 2!
+DEBUG:root:Ход 8 принят!
+DEBUG:root:Ход 9 принят!
+DEBUG:root:Ход 1 принят!
+DEBUG:root:Ход 2 принят!
+DEBUG:root:Бот блокирует игрока, ход на 3!
+DEBUG:root:Ход 4 принят!
+DEBUG:root:Бот выигрывает, ход на 7!
