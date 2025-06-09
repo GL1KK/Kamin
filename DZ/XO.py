@@ -24,7 +24,7 @@ def input_data():
     def check_correct_data(data):
         try:
             if 1 <= int(data) <= 9:
-                if desk[int(data)-1] not in ("x", "o"):
+                if int(data) in desk:
                     logging.debug(f"Ход {data} принят!")
                     return True
             logging.debug(f"Ход {data} не принят!")
