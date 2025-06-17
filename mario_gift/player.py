@@ -8,21 +8,22 @@ COLOR = "#000000"
 JUMP_POWER = 10
 GRAVITY = 0.35  # Сила, которая будет тянуть нас вниз
 DELAY = 1
-ANIM_RIGHT = [("images/hero/r1.png", DELAY),
-              ("images/hero/r2.png", DELAY),
-              ("images/hero/r3.png", DELAY),
-              ("images/hero/r4.png", DELAY),
-              ("images/hero/r5.png", DELAY)]
+ANIM_RIGHT = [("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/r1.png", DELAY),
+              ("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/r2.png", DELAY),
+              ("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/r3.png", DELAY),
+              ("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/r4.png", DELAY),
+              ("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/r5.png", DELAY)]
 
-ANIM_LEFT = [("images/hero/l1.png", DELAY),
-             ("images/hero/l2.png", DELAY),
-             ("images/hero/l3.png", DELAY),
-             ("images/hero/l4.png", DELAY),
-             ("images/hero/l5.png", DELAY)]
+ANIM_LEFT = [("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/l1.png", DELAY),
+             ("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/l2.png", DELAY),
+             ("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/l3.png", DELAY),
+             ("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/l4.png", DELAY),
+             ("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/l5.png", DELAY)]
 
-ANIM_STAY = [("images/hero/0.png", DELAY)]
-ANIM_JUMP_RIGHT = [("images/hero/jr.png", DELAY)]
-ANIM_JUMP_LEFT = [("images/hero/jl.png", DELAY)]
+ANIM_STAY = [("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/0.png", DELAY)]
+ANIM_JUMP_RIGHT = [("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/jr.png", DELAY)]
+ANIM_JUMP_LEFT = [("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/jl.png", DELAY)]
+ANIM_JUMP = [("/home/daniil/Projects/Python/KAMIN/mario_gift/images/hero/j.png", DELAY)]
 
 
 class Player(pygame.sprite.Sprite):
@@ -41,7 +42,6 @@ class Player(pygame.sprite.Sprite):
         self.onGround = False
         self.image.set_colorkey(pygame.Color(COLOR))
         
-        # Анимации
         self.anim_stay = pyganim.PygAnimation(ANIM_STAY)
         self.anim_stay.play()
         
@@ -57,53 +57,54 @@ class Player(pygame.sprite.Sprite):
         self.anim_jump_left = pyganim.PygAnimation(ANIM_JUMP_LEFT)
         self.anim_jump_left.play()
         
+        self.anim_jump = pyganim.PygAnimation(ANIM_JUMP)
+        self.anim_jump.play()
+        
         self.anim_stay.blit(self.image, (0, 0))
 
     def update(self, platforms):
-        # Если мы в прыжке
-        if not self.onGround:
-            if self.xvel > 0:  # Если двигались вправо
-                self.image.fill(pygame.Color(COLOR))
-                self.anim_jump_right.blit(self.image, (0, 0))
-            elif self.xvel < 0:  # Если двигались влево
-                self.image.fill(pygame.Color(COLOR))
+        if self.left:
+            self.xvel = -MOVE_SPEED
+            self.image.fill(pygame.Color(COLOR))
+            if not self.onGround:
                 self.anim_jump_left.blit(self.image, (0, 0))
             else:
-                if self.left:
-                    self.image.fill(pygame.Color(COLOR))
-                    self.anim_jump_left.blit(self.image, (0, 0))
-                else:
-                    self.image.fill(pygame.Color(COLOR))
-                    self.anim_jump_right.blit(self.image, (0, 0))
-        else:
-            # Обычная логика для движения по земле
-            if self.left:
-                self.xvel = -MOVE_SPEED
-                self.image.fill(pygame.Color(COLOR))
                 self.anim_left.blit(self.image, (0, 0))
-            elif self.right:
-                self.xvel = MOVE_SPEED
-                self.image.fill(pygame.Color(COLOR))
-                self.anim_right.blit(self.image, (0, 0))
+        elif self.right:
+            self.xvel = MOVE_SPEED
+            self.image.fill(pygame.Color(COLOR))
+            if not self.onGround:
+                self.anim_jump_right.blit(self.image, (0, 0))
             else:
-                self.xvel = 0
-                self.image.fill(pygame.Color(COLOR))
+                self.anim_right.blit(self.image, (0, 0))
+        else:
+            self.xvel = 0
+            self.image.fill(pygame.Color(COLOR))
+            if not self.onGround:
+                self.anim_jump.blit(self.image, (0, 0))
+            else:
                 self.anim_stay.blit(self.image, (0, 0))
 
         if self.up:
             if self.onGround:
                 self.yvel = -JUMP_POWER
+                self.onGround = False
+                self.image.fill(pygame.Color(COLOR))
+                if self.right:
+                    self.anim_jump_right.blit(self.image, (0, 0))
+                elif self.left:
+                    self.anim_jump_left.blit(self.image, (0, 0))
+                else:
+                    self.anim_jump.blit(self.image, (0, 0))
 
         if not self.onGround:
             self.yvel += GRAVITY
 
-        self.onGround = False
         self.rect.y += self.yvel
         self.collide(0, self.yvel, platforms)
 
         self.rect.x += self.xvel
         self.collide(self.xvel, 0, platforms)
-
     def draw(self, screen):
         screen.blit(self.image, (self.rect.x, self.rect.y))
 
@@ -135,3 +136,4 @@ class Player(pygame.sprite.Sprite):
             self.up = True
         elif event.type == pygame.KEYUP and event.key == pygame.K_SPACE:
             self.up = False
+

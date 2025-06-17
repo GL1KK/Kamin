@@ -1,8 +1,8 @@
 import platformm
 import pygame
 
-FILE = "./levels/1.txt"
-BG_FILE = "./images/bg.gif"
+FILE = "/home/daniil/Projects/Python/KAMIN/mario_gift/levels/1.txt"
+BG_FILE = "/home/daniil/Projects/Python/KAMIN/mario_gift/images/bg.gif"
 
 
 class Level:

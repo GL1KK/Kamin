@@ -13,5 +13,5 @@ class Platform(pygame.sprite.Sprite):
         self.image = pygame.Surface((PLATFORM_WIDTH,
                                      PLATFORM_HEIGHT))
         #self.image.fill(pygame.Color(PLATFORM_COLOR))
-        self.image = pygame.image.load("images/platform.png")
+        self.image = pygame.image.load("/home/daniil/Projects/Python/KAMIN/mario_gift/images/platform.png")
         self.rect = pygame.Rect(x, y, PLATFORM_WIDTH, PLATFORM_HEIGHT)

@@ -10,7 +10,7 @@ import camera
 def main():
     # TODO: реализовать работу приложения
     pygame.init()
-    pygame.mixer.music.load("music/super-mario-saundtrek.mp3")
+    pygame.mixer.music.load("/home/daniil/Projects/Python/KAMIN/mario_gift/music/super-mario-saundtrek.mp3")
     pygame.mixer.music.play(-1)
     window = pygame.display.set_mode(camera.DISPLAY)
     pygame.display.set_caption("☺А-ЛЯ ИГРА МАРИО☻")
